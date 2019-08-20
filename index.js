@@ -15,8 +15,8 @@
  */
 'use strict';
 
-const ENCODING_TO = 'base64';
-const ENCODING_FROM = 'utf8';
+const DEFAULT_ENCODING_TO = 'base64';
+const DEFAULT_ENCODING_FROM = 'utf8';
 
 /**
  * @param {string|number} data
@@ -28,7 +28,7 @@ function encode(data, encoding){
 	if (type !== 'string' && type !== 'number') {
 		throw new Error('The data must be type of string or number');
 	}
-	return Buffer.from(String(data), encoding || ENCODING_FROM).toString(ENCODING_TO);
+	return Buffer.from(String(data), encoding || DEFAULT_ENCODING_FROM).toString(DEFAULT_ENCODING_TO);
 }
 
 /**
@@ -40,7 +40,7 @@ function decode(data, encoding){
 	if (typeof data !== 'string') {
 		throw new Error('The data must be type of string');
 	}
-	return Buffer.from(data, ENCODING_TO).toString(encoding || ENCODING_FROM);
+	return Buffer.from(data, DEFAULT_ENCODING_TO).toString(encoding || DEFAULT_ENCODING_FROM);
 }
 
 /**

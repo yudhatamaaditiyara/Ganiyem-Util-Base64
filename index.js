@@ -46,4 +46,4 @@ function decode(data, encoding){
 /**
  * @+
  */
-module.exports = {encode};
+module.exports = {encode, decode};

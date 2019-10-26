@@ -20,8 +20,9 @@ const DEFAULT_ENCODING_FROM = 'utf8';
 
 /**
  * @param {string|number} data
- * @param {string|void} encoding
- * @returns {string}
+ * @param {string=} encoding
+ * @throws {Error}
+ * @return {string}
  */
 function encode(data, encoding){
 	const type = typeof data;
@@ -33,7 +34,8 @@ function encode(data, encoding){
 
 /**
  * @param {string} data
- * @param {string|void} encoding
+ * @param {string=} encoding
+ * @throws {Error}
  * @returns {string}
  */
 function decode(data, encoding){

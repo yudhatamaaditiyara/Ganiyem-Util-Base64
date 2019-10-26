@@ -36,7 +36,7 @@ function encode(data, encoding){
  * @param {string} data
  * @param {string=} encoding
  * @throws {Error}
- * @returns {string}
+ * @return {string}
  */
 function decode(data, encoding){
 	if (typeof data !== 'string') {

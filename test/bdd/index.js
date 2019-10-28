@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 const assert = require('assert');
+const {IllegalArgumentError} = require('ganiyem-error');
 const {encode, decode} = require('../../');
 let soekarnoQuoteDecoded = 'Gantungkan cita-cita mu setinggi langit! Bermimpilah setinggi langit. Jika engkau jatuh, engkau akan jatuh di antara bintang-bintang.';
 let soekarnoQuoteEncoded = 'R2FudHVuZ2thbiBjaXRhLWNpdGEgbXUgc2V0aW5nZ2kgbGFuZ2l0ISBCZXJtaW1waWxhaCBzZXRpbmdnaSBsYW5naXQuIEppa2EgZW5na2F1IGphdHVoLCBlbmdrYXUgYWthbiBqYXR1aCBkaSBhbnRhcmEgYmludGFuZy1iaW50YW5nLg==';
@@ -106,7 +107,7 @@ describe('index', () => {
             encode({});
             assert.ok(false);
         } catch (e) {
-            assert.ok(true);
+            assert.ok(e instanceof IllegalArgumentError);
         }
     });
 
@@ -117,7 +118,7 @@ describe('index', () => {
             decode(123);
             assert.ok(false);
         } catch (e) {
-            assert.ok(true);
+            assert.ok(e instanceof IllegalArgumentError);
         }
     });
 });

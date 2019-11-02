@@ -23,10 +23,10 @@ const DEFAULT_ENCODING_TO = 'base64';
 const DEFAULT_ENCODING_FROM = 'utf8';
 
 /**
- * @param {string|number} data
- * @param {string=} encoding
+ * @param {(string|number)} data
+ * @param {string} [encoding]
  * @throws {IllegalArgumentError}
- * @return {string}
+ * @returns {string}
  */
 function encode(data, encoding){
 	const type = typeof data;
@@ -38,9 +38,9 @@ function encode(data, encoding){
 
 /**
  * @param {string} data
- * @param {string=} encoding
+ * @param {string} [encoding]
  * @throws {IllegalArgumentError}
- * @return {string}
+ * @returns {string}
  */
 function decode(data, encoding){
 	if (typeof data !== 'string') {

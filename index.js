@@ -29,11 +29,11 @@ const DEFAULT_ENCODING_FROM = 'utf8';
  * @returns {string}
  */
 function encode(data, encoding){
-	const type = typeof data;
-	if (type !== 'string' && type !== 'number') {
-		throw new IllegalArgumentError('The data must be type of string or number');
-	}
-	return Buffer.from(String(data), encoding || DEFAULT_ENCODING_FROM).toString(DEFAULT_ENCODING_TO);
+  const type = typeof data;
+  if (type !== 'string' && type !== 'number') {
+    throw new IllegalArgumentError('The data must be type of string or number');
+  }
+  return Buffer.from(String(data), encoding || DEFAULT_ENCODING_FROM).toString(DEFAULT_ENCODING_TO);
 }
 
 /**
@@ -43,10 +43,10 @@ function encode(data, encoding){
  * @returns {string}
  */
 function decode(data, encoding){
-	if (typeof data !== 'string') {
-		throw new IllegalArgumentError('The data must be type of string');
-	}
-	return Buffer.from(data, DEFAULT_ENCODING_TO).toString(encoding || DEFAULT_ENCODING_FROM);
+  if (typeof data !== 'string') {
+    throw new IllegalArgumentError('The data must be type of string');
+  }
+  return Buffer.from(data, DEFAULT_ENCODING_TO).toString(encoding || DEFAULT_ENCODING_FROM);
 }
 
 /**

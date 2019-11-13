@@ -16,109 +16,78 @@
 const assert = require('assert');
 const {IllegalArgumentError} = require('ganiyem-error');
 const {encode, decode} = require('../../');
+
 let soekarnoQuoteDecoded = 'Gantungkan cita-cita mu setinggi langit! Bermimpilah setinggi langit. Jika engkau jatuh, engkau akan jatuh di antara bintang-bintang.';
 let soekarnoQuoteEncoded = 'R2FudHVuZ2thbiBjaXRhLWNpdGEgbXUgc2V0aW5nZ2kgbGFuZ2l0ISBCZXJtaW1waWxhaCBzZXRpbmdnaSBsYW5naXQuIEppa2EgZW5na2F1IGphdHVoLCBlbmdrYXUgYWthbiBqYXR1aCBkaSBhbnRhcmEgYmludGFuZy1iaW50YW5nLg==';
 
-/**
- */
 describe('index', () => {
-    /**
-     */
-    it('typeof(encode) === "function"', () => {
-        assert.strictEqual(typeof encode, 'function');
-    });
+  it('must be typeof encode === "function"', () => {
+    assert.ok(typeof encode === 'function');
+  });
 
-    /**
-     */
-    it('typeof(decode) === "function"', () => {
-        assert.strictEqual(typeof decode, 'function');
-    });
+  it('must be typeof decode === "function"', () => {
+    assert.ok(typeof decode === 'function');
+  });
 
-    /**
-     */
-    it('encode("foo") === "Zm9v"', () => {
-        assert.strictEqual(encode('foo'), 'Zm9v');
-    });
+  it('must be encode("foo") === "Zm9v"', () => {
+    assert.strictEqual(encode('foo'), 'Zm9v');
+  });
 
-    /**
-     */
-    it('decode(encode("foo")) === "foo"', () => {
-        assert.strictEqual(decode(encode('foo')), 'foo');
-    });
+  it('must be decode(encode("foo")) === "foo"', () => {
+    assert.strictEqual(decode(encode('foo')), 'foo');
+  });
 
-    /**
-     */
-    it('encode("foo", "hex") === ""', () => {
-        assert.strictEqual(encode('foo', 'hex'), '');
-    });
+  it('must be encode("foo", "hex") === ""', () => {
+    assert.strictEqual(encode('foo', 'hex'), '');
+  });
 
-    /**
-     */
-    it('encode("666f6f", "hex") === "Zm9v"', () => {
-        assert.strictEqual(encode('666f6f', 'hex'), 'Zm9v');
-    });
+  it('must be encode("666f6f", "hex") === "Zm9v"', () => {
+    assert.strictEqual(encode('666f6f', 'hex'), 'Zm9v');
+  });
 
-    /**
-     */
-    it('decode(encode("666f6f", "hex"), "hex") === "666f6f"', () => {
-        assert.strictEqual(decode(encode('666f6f', 'hex'), 'hex'), '666f6f');
-    });
+  it('must be decode(encode("666f6f", "hex"), "hex") === "666f6f"', () => {
+    assert.strictEqual(decode(encode('666f6f', 'hex'), 'hex'), '666f6f');
+  });
 
-    /**
-     */
-    it('decode(encode("foo"), "hex") === "666f6f"', () => {
-        assert.strictEqual(decode(encode('foo'), 'hex'), '666f6f');
-    });
+  it('must be decode(encode("foo"), "hex") === "666f6f"', () => {
+    assert.strictEqual(decode(encode('foo'), 'hex'), '666f6f');
+  });
 
-    /**
-     */
-    it('decode(encode("666f6f", "hex")) === "foo"', () => {
-        assert.strictEqual(decode(encode('666f6f', 'hex')), 'foo');
-    });
+  it('must be decode(encode("666f6f", "hex")) === "foo"', () => {
+    assert.strictEqual(decode(encode('666f6f', 'hex')), 'foo');
+  });
 
-    /**
-     */
-    it('encode(123) === "MTIz"', () => {
-        assert.strictEqual(encode(123), 'MTIz');
-    });
+  it('must be encode(123) === "MTIz"', () => {
+    assert.strictEqual(encode(123), 'MTIz');
+  });
 
-    /**
-     */
-    it('decode(encode(123)) === "123"', () => {
-        assert.strictEqual(decode(encode(123)), "123");
-    });
+  it('must be decode(encode(123)) === "123"', () => {
+    assert.strictEqual(decode(encode(123)), "123");
+  });
 
-    /**
-     */
-    it('encode(soekarnoQuoteDecoded) === soekarnoQuoteEncoded', () => {
-        assert.strictEqual(encode(soekarnoQuoteDecoded), soekarnoQuoteEncoded);
-    });
+  it('must be encode(soekarnoQuoteDecoded) === soekarnoQuoteEncoded', () => {
+    assert.strictEqual(encode(soekarnoQuoteDecoded), soekarnoQuoteEncoded);
+  });
 
-    /**
-     */
-    it('decode(encode(soekarnoQuoteDecoded)) === soekarnoQuoteDecoded', () => {
-        assert.strictEqual(decode(encode(soekarnoQuoteDecoded)), soekarnoQuoteDecoded);
-    });
+  it('must be decode(encode(soekarnoQuoteDecoded)) === soekarnoQuoteDecoded', () => {
+    assert.strictEqual(decode(encode(soekarnoQuoteDecoded)), soekarnoQuoteDecoded);
+  });
 
-    /**
-     */
-    it('encode({}) ...catch(e)', () => {
-        try {
-            encode({});
-            assert.ok(false);
-        } catch (e) {
-            assert.ok(e instanceof IllegalArgumentError);
-        }
-    });
+  it('must be encode({}) throw IllegalArgumentError()', () => {
+    try {
+      encode({});
+      assert.ok(false);
+    } catch (e) {
+      assert.ok(e instanceof IllegalArgumentError);
+    }
+  });
 
-    /**
-     */
-    it('decode(123) ...catch(e)', () => {
-        try {
-            decode(123);
-            assert.ok(false);
-        } catch (e) {
-            assert.ok(e instanceof IllegalArgumentError);
-        }
-    });
+  it('must be decode(123) throw IllegalArgumentError()', () => {
+    try {
+      decode(123);
+      assert.ok(false);
+    } catch (e) {
+      assert.ok(e instanceof IllegalArgumentError);
+    }
+  });
 });

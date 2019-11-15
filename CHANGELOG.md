@@ -1,3 +1,9 @@
+# 1.0.6 - 2019-11-15
+
+**Changed**
+- Deps `ganiyem-error 1.5.1`
+- Test refactoring
+
 # 1.0.5 - 2019-11-13
 
 **Changed**

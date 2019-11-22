@@ -1,3 +1,9 @@
+# 1.0.7 - 2019-11-22
+
+- build: upgrade deps `ganiyem-error@1.5.2`
+- build: fix npm install deps version
+- docs: refactoring `CHANGELOG.md`
+
 # 1.0.6 - 2019-11-15
 
 - build: upgrade deps `ganiyem-error@1.5.1`
